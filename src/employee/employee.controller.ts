@@ -4,7 +4,7 @@ import { CreateEmployeeDTO } from './interface/IEmployee';
 import { EmployeeEntity } from './model/employee';
 import { Request } from 'express';
 
-@Controller('employee.controller')
+@Controller('employee')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
   @Post('')
@@ -22,7 +22,7 @@ export class EmployeeController {
     return await this.employeeService.find(id);
   }
 
-  @Put(':/:id')
+  @Put('/:id')
   async update(
     @Param('id') id: string,
     updateDTO: CreateEmployeeDTO,
